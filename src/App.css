@@ -132,6 +132,7 @@ body {
 .posts {
   display: grid;
   grid-gap: 20px;
+  margin: 5%;
 }
 
 .post {
