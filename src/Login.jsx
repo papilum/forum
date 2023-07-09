@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-
+    let navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('/api/login', {
+      const response = await axios.post('http://127.0.0.1:8000/api/login', {
         email: email,
         password: password
       });
 
       // Obrada odgovora sa uspešnom prijavom
       console.log(response.data);
+      if(response.data.isAdmin==0){
+            navigate('/posts')
+      }else{
+            navigate('/admin')
+      } 
     } catch (error) {
       // Obrada greške pri prijavi
       setError('Invalid credentials');
