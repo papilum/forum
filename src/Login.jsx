@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = (setIsLoggedIn) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -18,6 +18,7 @@ const Login = () => {
 
       // Obrada odgovora sa uspešnom prijavom
       console.log(response.data);
+      setIsLoggedIn(true)
       if(response.data.isAdmin==0){
             navigate('/posts')
       }else{
