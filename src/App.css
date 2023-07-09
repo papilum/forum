@@ -79,3 +79,38 @@ body {
   align-items: center;
   height: 100vh;
 }
+
+
+.navbar {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo a {
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.nav-links li {
+  display: inline;
+  margin-left: 10px;
+}
+
+.nav-links li:first-child {
+  margin-left: 0;
+}
+  
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
