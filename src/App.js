@@ -9,6 +9,7 @@ import axios from 'axios';
 import Posts from './Posts';
 import Photos from './Photos';
 import ForumPosts from './ForumPosts';
+import AdminPage from './AdminPage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -36,6 +37,7 @@ function App() {
         <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts} />} />
         <Route path="/photos" element={<Photos />} />
         <Route path="/trending" element={<ForumPosts />} />
+        <Route path="/admin" element={<AdminPage posts={posts} />} />
 
       </Routes>
       <Footer />
