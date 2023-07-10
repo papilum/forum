@@ -10,6 +10,7 @@ import Posts from './Posts';
 import Photos from './Photos';
 import ForumPosts from './ForumPosts';
 import AdminPage from './AdminPage';
+import PostsTable from './PostsTable';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,6 +29,7 @@ function App() {
 
     fetchPosts();
   }, []);
+  
   return (
     <Router>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
@@ -38,6 +40,7 @@ function App() {
         <Route path="/photos" element={<Photos />} />
         <Route path="/trending" element={<ForumPosts />} />
         <Route path="/admin" element={<AdminPage posts={posts} />} />
+        <Route path="/admin/posts" element={<PostsTable posts={posts} />} />
 
       </Routes>
       <Footer />
