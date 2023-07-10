@@ -395,3 +395,47 @@ h3 {
   border-top: 1px solid #ccc;
   margin: 20px 0;
 }
+.tabela{
+  margin: 5%;
+}
+
+.update {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.update h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.update form {
+  display: flex;
+  flex-direction: column;
+}
+
+.update label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.update input[type="text"],
+.update textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.update button[type="submit"] {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.update button[type="submit"]:hover {
+  background-color: #45a049;
+}

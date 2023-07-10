@@ -40,7 +40,7 @@ const PostsTable = ({ posts }) => {
   };
 
   return (
-    <div className="tabelaPoruka">
+    <div className="tabela">
       <MDBDataTableV5 hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={data} />
     </div>
   );

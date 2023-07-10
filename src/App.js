@@ -11,6 +11,7 @@ import Photos from './Photos';
 import ForumPosts from './ForumPosts';
 import AdminPage from './AdminPage';
 import PostsTable from './PostsTable';
+import Update from './Update';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -41,6 +42,7 @@ function App() {
         <Route path="/trending" element={<ForumPosts />} />
         <Route path="/admin" element={<AdminPage posts={posts} />} />
         <Route path="/admin/posts" element={<PostsTable posts={posts} />} />
+        <Route path="/posts/:id" element={<Update posts={posts} setPosts={setPosts}  />} />
 
       </Routes>
       <Footer />
