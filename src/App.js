@@ -17,7 +17,7 @@ function App() {
       try {
         const response = await axios.get('http://127.0.0.1:8000/api/posts');
         setPosts(response.data.data);
-        console.log(response.data)
+        console.log(response.data.data)
       } catch (error) {
         console.error('Error fetching posts:', error);
       }
@@ -31,7 +31,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/posts" element={<Posts posts={posts} />} />
+        <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts} />} />
 
       </Routes>
       <Footer />

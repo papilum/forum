@@ -22,8 +22,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string',
             'user_id' => 'required|exists:users,id',
-        ]);
-
+        ]);  
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 400);
         }
