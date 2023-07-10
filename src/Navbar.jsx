@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const Navbar = ({isLoggedIn,setIsLoggedIn}) => {
- 
+const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [role, setRole] = useState(sessionStorage.getItem('role') || '');
 
   const handleLogout = async () => {
     try {
@@ -14,32 +14,53 @@ const Navbar = ({isLoggedIn,setIsLoggedIn}) => {
     }
   };
 
+  let navLinks;
+  if (isLoggedIn) {
+    if (role === 'admin') {
+      navLinks = (
+        <>
+          <li>
+            <Link to="/admin">Admin Page</Link>
+          </li>
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+        </>
+      );
+    } else {
+      navLinks = (
+        <>
+          <li>
+            <Link to="/posts">Posts</Link>
+          </li>
+          <li>
+            <Link to="/photos">Photos</Link>
+          </li>
+          <li>
+            <Link to="/trending">Trending</Link>
+          </li>
+        </>
+      );
+    }
+  } else {
+    navLinks = (
+      <>
+        <li>
+          <Link to="/register">Register</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      </>
+    );
+  }
+
   return (
     <nav className="navbar">
       <div className="logo">
         <Link to="/">Forum</Link>
       </div>
-      <ul className="nav-links">
-        {isLoggedIn ? (
-          <>
-            <li>
-              <Link to="/posts">Posts</Link>
-            </li>
-            <li>
-              <button onClick={handleLogout}>Logout</button>
-            </li>
-          </>
-        ) : (
-          <>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          </>
-        )}
-      </ul>
+      <ul className="nav-links">{navLinks}</ul>
     </nav>
   );
 };

@@ -23,8 +23,10 @@ const Login = ({setIsLoggedIn}) => {
         window.sessionStorage.setItem("user_id",response.data.user.id)
         if(response.data.isAdmin==0){
               navigate('/posts')
+              window.sessionStorage.setItem("role","user")
         }else{
               navigate('/admin')
+              window.sessionStorage.setItem("role","admin")
         } 
       }
      
