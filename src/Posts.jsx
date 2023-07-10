@@ -7,7 +7,8 @@ const Posts = ({ posts, setPosts }) => {
   const [sortOrder, setSortOrder] = useState('desc');
   const [newPost, setNewPost] = useState({ title: '', content: '', category_id: 1 });
   const [newComment, setNewComment] = useState({ postId: null, content: '' });
-
+  const userId = window.sessionStorage.getItem('user_id');
+  console.log(userId)
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -101,7 +102,15 @@ const Posts = ({ posts, setPosts }) => {
     }
   };
 
- 
+  const handleDeletePost = async (postId) => {
+    try {
+      await axios.delete(`http://127.0.0.1:8000/api/posts/${postId}`);
+      const updatedPosts = posts.filter((post) => post.id !== postId);
+      setPosts(updatedPosts);
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  };
 
   const filteredPosts = posts?.filter((post) =>
     post.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -173,10 +182,14 @@ const Posts = ({ posts, setPosts }) => {
                 <button type="submit">Submit</button>
               </form>
             </div>
+           
             <p className="likes">Likes: {post.likes.length}</p>
             <button className="print-button" onClick={() => handlePrint(post)}>
               Print
             </button>
+            {post.user.id == userId && (
+                <button onClick={() => handleDeletePost(post.id)}>Delete</button>
+              )}
           </div>
         ))
       ) : (
