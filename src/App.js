@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Posts from './Posts';
 import Photos from './Photos';
+import ForumPosts from './ForumPosts';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,6 +35,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts} />} />
         <Route path="/photos" element={<Photos />} />
+        <Route path="/trending" element={<ForumPosts />} />
 
       </Routes>
       <Footer />
