@@ -20,6 +20,7 @@ const Login = ({setIsLoggedIn}) => {
       console.log(response.data);
       setIsLoggedIn(true)
       if(response.data.status==200){
+        window.sessionStorage.setItem("user_id",response.data.user.id)
         if(response.data.isAdmin==0){
               navigate('/posts')
         }else{

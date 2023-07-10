@@ -65,7 +65,7 @@ const Posts = ({ posts, setPosts }) => {
       const response = await axios.post('http://127.0.0.1:8000/api/posts', {
         title: newPost.title,
         content: newPost.content,
-        user_id: 1,
+        user_id: window.sessionStorage.getItem("user_id"),
       });
 
       setPosts([...posts, response.data]);
@@ -81,7 +81,7 @@ const Posts = ({ posts, setPosts }) => {
     try {
       const response = await axios.post(`http://127.0.0.1:8000/api/posts/${postId}/comments`, {
         content: newComment.content,
-        user_id: 1,
+        user_id:  window.sessionStorage.getItem("user_id")
       });
 
       const updatedPosts = posts.map((post) => {
