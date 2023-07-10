@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const Login = (setIsLoggedIn) => {
+const Login = ({setIsLoggedIn}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -19,13 +19,16 @@ const Login = (setIsLoggedIn) => {
       // Obrada odgovora sa uspešnom prijavom
       console.log(response.data);
       setIsLoggedIn(true)
-      if(response.data.isAdmin==0){
-            navigate('/posts')
-      }else{
-            navigate('/admin')
-      } 
+      if(response.data.status==200){
+        if(response.data.isAdmin==0){
+              navigate('/posts')
+        }else{
+              navigate('/admin')
+        } 
+      }
+     
     } catch (error) {
-      // Obrada greške pri prijavi
+      console.log(error)
       setError('Invalid credentials');
     }
   };

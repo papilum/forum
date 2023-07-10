@@ -42,6 +42,7 @@ class AuthController extends Controller
             $data = [
                 'user' => new UserResource($user),
                 'isAdmin' => $isAdmin,
+                'status'=>200
             ];
 
             return response()->json($data);

@@ -18,7 +18,7 @@ const Register = () => {
         password: password
       });
 
-      navigate('/posts')
+      navigate('/login')
       console.log(response.data);
 
     } catch (error) {
