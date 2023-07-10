@@ -305,3 +305,27 @@ button:hover {
 .delete-button:hover {
   background-color: #d32f2f;
 }
+
+
+.photos {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.photo {
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+}

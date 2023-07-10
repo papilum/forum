@@ -7,6 +7,7 @@ import Footer from './Footer';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Posts from './Posts';
+import Photos from './Photos';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts} />} />
+        <Route path="/photos" element={<Photos />} />
 
       </Routes>
       <Footer />
