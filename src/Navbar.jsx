@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const [role, setRole] = useState(sessionStorage.getItem('role') || '');
-
+  let navigate = useNavigate();
   const handleLogout = async () => {
     try {
       await axios.post('http://127.0.0.1:8000/api/logout');
       setIsLoggedIn(false);
+      navigate('/');
     } catch (error) {
       console.error('Error logging out:', error);
     }
@@ -25,7 +26,9 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <li>
             <Link to="/posts">Posts</Link>
           </li>
-
+          <li>
+     <button onClick={handleLogout}>Logout</button>
+    </li>
           
         </>
       );
@@ -41,9 +44,13 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <li>
             <Link to="/trending">Trending</Link>
           </li>
+          <li>
+     <button onClick={handleLogout}>Logout</button>
+    </li>
         </>
       );
     }
+   
   } else {
     navLinks = (
       <>
