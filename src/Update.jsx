@@ -36,7 +36,7 @@ const Update = ({ posts, setPosts }) => {
         content: formData.content,
       });
       console.log('Post updated:', response.data);
-      // Ažuriraj niz posts sa ažuriranim podacima posta
+    
       const updatedPosts = posts.map((post) => {
         if (post.id === parseInt(id)) {
           return { ...post, title: formData.title, content: formData.content };

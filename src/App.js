@@ -12,6 +12,7 @@ import ForumPosts from './ForumPosts';
 import AdminPage from './AdminPage';
 import PostsTable from './PostsTable';
 import Update from './Update';
+import HomePage from './HomePage';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -35,12 +36,14 @@ function App() {
     <Router>
       <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
+      <Route path="/" element={<HomePage />} />
+
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/posts" element={<Posts posts={posts} setPosts={setPosts} />} />
         <Route path="/photos" element={<Photos />} />
         <Route path="/trending" element={<ForumPosts />} />
-        <Route path="/admin" element={<AdminPage posts={posts} />} />
+        <Route path="/admin" element={<AdminPage/>} />
         <Route path="/admin/posts" element={<PostsTable posts={posts} />} />
         <Route path="/posts/:id" element={<Update posts={posts} setPosts={setPosts}  />} />
 

@@ -16,7 +16,7 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
 
   let navLinks;
   if (isLoggedIn) {
-    if (role === 'admin') {
+    if (role == 'admin') {
       navLinks = (
         <>
           <li>
@@ -25,6 +25,8 @@ const Navbar = ({ isLoggedIn, setIsLoggedIn }) => {
           <li>
             <Link to="/posts">Posts</Link>
           </li>
+
+          
         </>
       );
     } else {

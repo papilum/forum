@@ -26,9 +26,9 @@ Route::post('logout', [AuthController::class, 'logout']);
 
 
 Route::get('posts', [PostController::class, 'index']);
-    Route::post('posts', [PostController::class, 'store']);
-    Route::put('posts/{id}', [PostController::class, 'update']);
-    Route::delete('posts/{id}', [PostController::class, 'destroy']);
+Route::post('posts', [PostController::class, 'store']);
+ Route::put('posts/{id}', [PostController::class, 'update']);
+  Route::delete('posts/{id}', [PostController::class, 'destroy']);
 
     Route::get('posts/{postId}/comments', [CommentController::class, 'index']);
     Route::post('posts/{postId}/comments', [CommentController::class, 'store']);
@@ -37,3 +37,4 @@ Route::get('posts', [PostController::class, 'index']);
     Route::post('posts/{postId}/likes', [LikeController::class, 'store']);
 
     Route::get('categories', [CategoryController::class, 'index']);
+    
